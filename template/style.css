@@ -1,0 +1,400 @@
+/*
+ 
+*/
+body {
+font: 12px Verdana,Serif,Arial;
+line-height: 18px;
+color: #383838;
+}
+
+h1{
+font-family: Georgia, serif;
+font-style:italic;
+font-size: 12px;
+}
+img{
+	border: 0;
+}
+table, table td { 
+	padding:0;
+	border-collapse:collapse;
+}
+#wrapper{
+	width:920px;
+	margin:0 auto;
+	
+}
+
+#header {
+
+}
+
+#header .logo{
+float:left;
+
+width:400px;
+height:70px;
+}
+
+#header .menu{
+clear:both;
+float:right;
+width:100%;
+
+height:30px;
+border-bottom: dashed 1px #551A8B;
+
+}
+.smalcart{
+	float:right;	
+	height:55px;
+	padding: 10px;
+	padding-left: 15px;
+	margin: 10px;
+	border: 1px solid gray;
+	border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px;  
+	background: #E6DEEA;	
+}
+
+#sidebar .login{
+	float:right;	
+	height:170px;
+	padding: 10px;
+	padding-left: 15px;
+	margin: 10px;
+	border: 1px solid gray;
+	border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px;  
+	background: #E6DEEA;	
+}
+
+
+#content {	
+	padding-left: 10px;
+	width:920px;
+	float:left;
+	min-height: 440px;
+
+}
+#sidebar{
+	width:160px;
+	float:left;
+	min-height: 440px;
+	padding-top: 10px;
+	border-right: dashed 1px #551A8B;
+}
+
+#middle {
+	clear: both;
+	width: 100%;
+	margin : 0 auto;
+}
+
+#content1 {
+	float: left;
+	width: 500px;
+	height: 500px;
+	overflow: auto;
+	background: #A5E358;
+}
+
+#content1 table {
+	width: 100%;
+}
+
+/* Sidebar Left
+-----------------------------------------------------------------------------*/
+#sideLeft {
+	float: left;
+	width: 200px;
+	height: 500px;
+	overflow: auto;
+	background: #B5E3FF;
+}
+
+#ManagerContent {
+	float: right;
+	width: 520px;
+	height: 500px;
+	overflow: auto;
+	background: red;
+}
+
+#sideRightManager {
+	float: right;
+	width: 200px;
+	height: 500px;
+	overflow: auto;
+	background: green;
+}
+
+
+#sideLeftManagerOne {
+	float: left;
+	width: 200px;
+	height: 200px;
+	overflow: auto;
+	background: #B5E3FF;
+}
+
+#sideLeftManagerTwo {
+	float: left;
+	width: 200px;
+	height: 300px;
+	overflow: auto;
+	background: yellow;
+}
+
+/* Sidebar Right
+-----------------------------------------------------------------------------*/
+#sideRight {
+	float: right;
+	width: 220px;
+	height: 500px;
+	overflow: auto;
+	background: #FFACAA;
+}
+#info {
+	float:left;
+	border: 1px solid gray;
+	border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px;  
+	text-align:center;
+	padding: 10px;
+	width:150px;
+	height:370px;
+	margin: 10px;
+	background: #FFACAA;
+}
+
+
+#menu1{
+clear:both;
+float:right;
+width:100%;
+
+height:30px;
+border-bottom: dashed 1px #551A8B;
+
+}
+
+price_table {
+	background-color: white;
+	width: 100%;
+}
+tbody td {
+	background-color: white;
+}
+
+tbody td.odd {
+	background-color: #666;
+	color: white;
+}
+
+.menu li{
+	float:left;
+	margin-right: 40px;
+	margin-top: -10px;
+	list-style:none;
+	text-transform:uppercase;
+	font-weight:bold;
+	text-align:center;
+	display:block;
+}
+
+
+
+#footer{
+	clear: both;
+	float:left;
+	height:60px;
+	width:100%;
+	text-align:right;
+
+}
+	
+.product{
+	float:left;
+	border: 1px solid gray;
+	border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px;  
+	text-align:center;
+	padding: 10px;
+	width:150px;
+	height:150px;
+	margin: 10px;
+}
+.card_product{
+	float:left;
+	border: 1px solid gray;
+	border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px;  
+	background:#e5e5e5;
+	text-align:center;
+	padding: 10px;
+	margin: 10px;
+}
+.card_product .product_image {
+	border: 1px solid gray;
+	border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px;
+	background:#fff;	
+	margin: 10px;
+	padding: 10px;
+}
+.card_product .product_desc{
+	float:left;
+	font-style: italic;
+	text-align:left;
+	padding: 10px;
+
+}
+.card_product .product_buy a{
+float:right;
+padding: 5px;
+font-size: 12pt;
+margin: 10px;
+}
+.card_product .price{
+clear:both;
+float:left;
+color:green;
+padding: 5px;
+font-size: 12pt;
+font-weight: 600;
+margin: 10px;
+}
+.product_buy {
+margin-top: 5px;
+}
+.product_image img{
+	border: 0;
+	width:80px;
+	height:80px;
+}
+.product_buy a{
+		padding: 4px;
+		background:orange;	
+		border-radius: 10px; 
+		-moz-border-radius: 10px; 
+		-webkit-border-radius: 10px;  
+		text-decoration: none; 
+}
+
+.product_buy a:hover{
+		color:white;
+}
+
+
+.product h2{
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 14px;
+	color: green;
+	margin: 0px;
+}
+
+.table_cart {
+	width:80%;
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 14px;
+	color: #383838;
+	margin: 0px;
+	border: #808080 solid 1px;
+}
+
+.table_cart th{
+	font-family: Georgia, serif;
+	font-style:italic;
+	font-size: 11px;
+	color: black;
+	margin: 0px;	
+}
+
+.table_cart td{
+	text-align: center;
+	padding: 5px 0px;
+}
+
+.table_order_form  td{
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 14px;
+	color: #383838;
+	padding: 3px 5px;
+	border: #808080 solid 1px;
+}
+
+.pagination{
+clear:both;
+float:left;
+}
+.pagination a{
+padding:0px 5px 0px 5px;
+margin-right:5px;
+border: #808080 solid 1px;
+background: white;
+text-decoration:none;
+}
+.pagination a:hover{
+background: gray;
+}
+
+.pagination .activ {
+
+background: gray;
+}
+
+.sidebarmenu ul{
+margin: 0;
+padding: 0;
+list-style-type: none;
+font: bold 13px Verdana;
+width: 150px; /*Ширина меню */
+
+}
+  
+.sidebarmenu ul li{
+position: relative;
+
+}
+/* Стили ссылок для основного списка меню */
+.sidebarmenu ul li a{
+display: block;
+overflow: auto; /*force hasLayout in IE7 */
+color: #38385E; 
+text-decoration: none;  /*убрали подчеркивание*/
+padding: 5px; /*отступы*/
+border-bottom: 1px solid #778;
+border-right: 1px solid #778;
+}
+.sidebarmenu ul li a:link, .sidebarmenu ul li a:visited,
+.sidebarmenu ul li a:active{
+background-color: #E6DEEA; /*фоновый цвет основного списка*/
+}
+.sidebarmenu ul li a:visited{
+color: #38385E;  /*цвет шрифта после наведения курсора*/
+}
+.sidebarmenu ul li a:hover{
+color: white; 
+background-color: #551A8B; /*цвет фона после наведения курсора*/
+}
+/*Стили для подменю */
+.sidebarmenu ul li ul{
+position: absolute;
+width: 170px; /*ширина подменю */
+top: 0;
+visibility: hidden;
+}
+.sidebarmenu a.subfolderstyle{
+background:url('/images/right_vertic.gif') no-repeat 97% 50%;/*изображение(стрелочка вправо)*/
+}
+/* Holly Hack for IE \\*/
+* html .sidebarmenu ul li { float: left; height: 1%; }
+* html .sidebarmenu ul li a { height: 1%; }
+/* End */
