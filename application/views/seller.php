@@ -41,8 +41,19 @@
 			switch ($_SESSION['tab']){
 				case 1 : { //журнал
 					if (count($OrdersItems)>0) {
-
-						$table_orders="<table bgcolor='#E6DEEA' border='1' class='table_orders'><tr><th>№</th><th>Номер</th><th>Дата</th><th>Контрагент</th><th>Сумма</th><th>Статус</th><th>Выбрать</th></tr>";
+ 						$table_orders = "<table id='myTable' class='tablesorter'>
+						<thead>
+						<tr>
+							<th>№_</th>
+							<th>Номер</th>
+							<th>Дата</th>
+							<th>Контрагент</th>
+							<th>Сумма</th>
+							<th>Статус</th>
+							<th>Выбрать</th>
+						</tr>
+						</thead>
+						<tbody>";
 						$i=1;
 						foreach($OrdersItems as $item) {
 							if ($i%2==0) $bgcolor="#F2F2F2"; else $bgcolor="lightgray";
@@ -57,35 +68,42 @@
 							$table_orders.="<td>"."<INPUT TYPE='checkbox'  name='del_".$item['id']."'>"."</td>";
 							$table_orders.="</tr>";	
 						}
-						$table_orders.="</table>";
+						$table_orders.="</tbody></table>";
+
 						echo $table_orders;
 					break;
 					}
 				}
 				case 2 : {
 					if (count($PriceItems)>0) {
+ 						$table_price = "<table id='myTable' class='tablesorter'>
+						<thead>
+						<tr>
+							<th>№_</th>
+							<th>Наименование</th>
+							<th>Стоимость</th>
+							<th>Количество</th>
+							<th>Единица</th>
+							<th>Выбрать</th>
+						</tr>
+						</thead>
+						<tbody>";
 
-						$table_cart="<table bgcolor='#E6DEEA' border='1' class='table_cart'><tr><th>№</th><th>Наименование</th><th>Стоимость</th><th>Количество</th><th>Выбрать</th></tr>";
 						$i=1;
 						foreach($PriceItems as $item) {
 							if ($i%2==0) $bgcolor="#F2F2F2"; else $bgcolor="lightgray";
-							$table_cart.="<tr bgcolor=$bgcolor>";
-							$table_cart.="<td>".$i++."</td>";
-							// $table_cart.="<td>".$item['name']."</td>";
-							$table_cart.="<td><a href='/enter?in-cart-product-id=".$item['id']."'>".$item['name']."</a></td>";
-													
-
-							$table_cart.="<td>".$item['price']." руб. </td>";
-							$table_cart.="<td><input type='text' style='text-align:center' size=3 name='item_".$item['id']."' value='".$item['count']."' /></td>";
-							// $table_cart.="<td>".$_SESSION['cart'][$product['id']]*$product['price']." руб. </td>";
-							$table_cart.="<td>"."<INPUT TYPE='checkbox'  name='del_".$item['id']."'>"."</td>";
-							$table_cart.="</tr>";	
-							// $total_summ+=$_SESSION['cart'][$product['id']]*$product['price'];
-							// $total_summ=1000;
+							$table_price.="<tr bgcolor=$bgcolor>";
+							$table_price.="<td>".$i++."</td>";
+							// $table_price.="<td><a href='/enter?in-cart-product-id=".$item['id']."'>".$item['name']."</a></td>";
+							$table_price.="<td>".$item['name']."</td>";
+							$table_price.="<td>".$item['price']." руб. </td>";
+							$table_price.="<td><input type='text' style='text-align:center' size=3 name='item_".$item['id']."' value='".$item['count']."' /></td>";
+							$table_price.="<td>"."ед"."</td>";
+							$table_price.="<td>"."<INPUT TYPE='checkbox'  name='del_".$item['id']."'>"."</td>";
+							$table_price.="</tr>";	
 						}
-						// $table_cart.="<tr><td colspan='3'></td><td>К оплате: </td><td><strong> <span style='color: #7F0037'>".$total_summ." руб. </span></strong></td></tr></table>";
-						$table_cart.="</table>";
-						echo $table_cart;
+						$table_price.="</tbody></table>";
+						echo $table_price;
 					}
 					break;
 				}//прайс
