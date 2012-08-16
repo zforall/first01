@@ -1,6 +1,8 @@
 ﻿	<div class="menu">
 		<?=$usermenu?>
 	</div>	
+	
+	<?echo $Status ?>
 
 	<div id="middle">
 
@@ -25,9 +27,11 @@
 				foreach($LeftItems as $item){
 					$tmp = $item['name'];
 					$tmp1 = $item['id'];
+					// echo "<a href=?r=1?u=$tmp1>$tmp</a><br>";
 					echo "<a href=?u=$tmp1>$tmp</a><br>";
 				}
 			}			
+			// echo "<a href=?r=1?u=-1>Все</a><br>";
 			echo "<a href=?u=-1>Все</a><br>";
 			?>
 
@@ -74,12 +78,13 @@
 					break;
 					}
 				}
-				case 2 : {
+				case 2 : { //прайс
 					if (count($PriceItems)>0) {
- 						$table_price = "<table id='myTable' class='tablesorter'>
+ 						$table_price = "<form method=POST><table id='myTable' class='tablesorter'>
 						<thead>
 						<tr>
 							<th>№_</th>
+							<th>Артикул</th>
 							<th>Наименование</th>
 							<th>Стоимость</th>
 							<th>Количество</th>
@@ -91,18 +96,22 @@
 
 						$i=1;
 						foreach($PriceItems as $item) {
+							$id = $item['id'];
 							if ($i%2==0) $bgcolor="#F2F2F2"; else $bgcolor="lightgray";
 							$table_price.="<tr bgcolor=$bgcolor>";
 							$table_price.="<td>".$i++."</td>";
 							// $table_price.="<td><a href='/enter?in-cart-product-id=".$item['id']."'>".$item['name']."</a></td>";
+							$table_price.="<td>".$item['art']."</td>";
 							$table_price.="<td>".$item['name']."</td>";
 							$table_price.="<td>".$item['price']." руб. </td>";
-							$table_price.="<td><input type='text' style='text-align:center' size=3 name='item_".$item['id']."' value='".$item['count']."' /></td>";
-							$table_price.="<td>"."ед"."</td>";
-							$table_price.="<td>"."<INPUT TYPE='checkbox'  name='del_".$item['id']."'>"."</td>";
+							// $table_price.="<td><input type='text' style='text-align:center' size=3 name='item_".$item['id']."' value='".$item['count']."' /></td>";
+							$table_price.="<td><input type='text' style='text-align:center' size=3 value='".$item['count']."' /></td>";
+							$table_price.="<td>".$item['ed']."</td>";
+							$table_price.="<td><INPUT TYPE='checkbox'  name=del[$id] value=$id></td>";
 							$table_price.="</tr>";	
 						}
 						$table_price.="</tbody></table>";
+						$table_price.="<input type='submit' value='Удалить'></form>";
 						echo $table_price;
 					}
 					break;
@@ -117,9 +126,9 @@
 			<strong>Загрузка прайса</strong>
 			<br>
 			<form action="" method="post" enctype="multipart/form-data">
-			<input type=hidden name="MAX_FILE_SIZE" value=5000 />
-			<input type="file" name="filename"><br> 
-			<input type="submit" value="Загрузить"><br>
+				<input type=hidden name="MAX_FILE_SIZE" value=3145728>
+				<input type="file" name="filename"><br> 
+				<input type="submit" name="submit" value="Загрузить"><br>
 			</form>
 		</div><!-- .sidebar#sideRight -->
 

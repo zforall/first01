@@ -6,50 +6,49 @@ class Application_Controllers_Seller extends Lib_BaseController
 	 
     function __construct()
 	{
+		$status = ''; //диагностические сообщения в строку статуса
+		
+		//ошибки при загрузке файла
+		$upload_errors = array( 
+			UPLOAD_ERR_OK        => "No errors.", 
+			UPLOAD_ERR_INI_SIZE    => "Larger than upload_max_filesize.", 
+			UPLOAD_ERR_FORM_SIZE    => "Larger than form MAX_FILE_SIZE.", 
+			UPLOAD_ERR_PARTIAL    => "Partial upload.", 
+			UPLOAD_ERR_NO_FILE        => "No file.", 
+			UPLOAD_ERR_NO_TMP_DIR    => "No temporary directory.", 
+			UPLOAD_ERR_CANT_WRITE    => "Can't write to disk.", 
+			UPLOAD_ERR_EXTENSION     => "File upload stopped by extension.", 
+			UPLOAD_ERR_EMPTY        => "File is empty." // add this to avoid an offset 
+		); 
 
 		$model = new Application_Models_Seller;
 
-		$Items = $model->getLeftList($_SESSION["uid"]);	
-		$this->LeftItems=$Items;
+		if (isset($_REQUEST["r"])) $_SESSION["tab"]=$_REQUEST["r"];
+		else $_SESSION["tab"]=1;
 		 
 		if (isset($_REQUEST["u"])) $_SESSION["filtr"]=$_REQUEST["u"];
 
-		$Items1 = $model->getPrice($_SESSION["uid"]);
-		$Items2 = $model->getOrders($_SESSION["filtr"], $_SESSION["uid"], $_SESSION["role"]);	
+		if (isset($_REQUEST['del'])) $status .= $model->delSelected($_REQUEST['del']);;
 
-		$this->PriceItems = $Items1;
-		$this->OrdersItems = $Items2;
-
-		switch ($_REQUEST['r']) {
-			case 1 : $_SESSION["tab"]=1; break;
-			case 2 : $_SESSION["tab"]=2; break;
-			case 3 : $_SESSION["tab"]=3; break;
-		}
-
+		$this->LeftItems   = $model->getLeftList($_SESSION["uid"]);	
+		$this->PriceItems  = $model->getPrice($_SESSION["uid"]);
+		$this->OrdersItems = $model->getOrders($_SESSION["filtr"], $_SESSION["uid"], $_SESSION["role"]);	
 
 		if(isset($_FILES["filename"]))
 		{
-						var_dump($_FILES["filename"]);
-
-			// if($_FILES["filename"]["size"] > 1024*3*1024)
-		   // {
-			 // echo ("Размер файла превышает три мегабайта");
-			 // exit;
-		   // }
-		   
 		   // Проверяем загружен ли файл
 			if(is_uploaded_file($_FILES["filename"]["tmp_name"]))
 			{
-				var_dump($_FILES["filename"]);
-
-			 // Если файл загружен успешно, перемещаем его
-			 // из временной директории в конечную
-			move_uploaded_file($_FILES["filename"]["tmp_name"], "uploads/".$_FILES["filename"]["name"]);
+				// Если файл загружен успешно, перемещаем его
+				// из временной директории в конечную
+				move_uploaded_file($_FILES["filename"]["tmp_name"], "uploads/".$_FILES["filename"]["name"]);
+				$status .= $model->loadPrice();
 			} else {
-			  loger("error_file_loading ".$_FILES["filename"]["error"]);
+			  loger("error_file_loading ".$upload_errors[$_FILES["filename"]["error"]]);
 			}
-			$model->loadPrice();
 		}
+		
+		$this->Status = $status;
 
 	}
 

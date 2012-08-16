@@ -58,7 +58,7 @@
 					// echo "<a href=?u=$tmp1>$tmp</a><br>";
 				// }
 			// }
-						echo "<form action=''>";
+						echo "<form method=POST>";
 						$table_orders="<table bgcolor='#E6DEEA' border='1' class='table_orders'><tr><th>№</th><th>Контрагент</th><th>Выбрать</th></tr>";
 						$i=1;
 						foreach($ContentItems as $item) {

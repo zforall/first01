@@ -48,6 +48,7 @@ class Application_Controllers_Manager extends Lib_BaseController
 		$ts = $model->GetRel($_SESSION["u"]);
 		
 		if (isset($_REQUEST["upd"])) $diff = $this->Diff($ts, $_REQUEST["upd"]);
+		// var_dump($_REQUEST["upd"]);
 		if ($diff) {
 			$model->UpdateRel($_SESSION["u"], $this->Get["ContentItems"]);
 			$this->ContentItems = $model->GetRel($_SESSION["u"]);

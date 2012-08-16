@@ -6,7 +6,7 @@
 */
 
 require_once "./config.php"; //файл настроек
-define("protect", 10, true);
+define("protect", 10, true); //?
 //-------------------------------------
 
 $router=new Lib_Application; //создаем объект, который будет искать нуджные контролеры
