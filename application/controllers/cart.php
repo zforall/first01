@@ -46,7 +46,6 @@
 			}
 			
 			if(isset($_REQUEST["to_order"])){  // если пришли данные с формы
-			var_dump('gopa1');
 				$model = new Application_Models_Cart;	//создаем модель заказа
 				$order_id=$model->saveCartToBD();
 				Lib_SmalCart::getInstance()->setCartData();// пересчитываем маленькую корзину

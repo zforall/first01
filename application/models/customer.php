@@ -64,6 +64,7 @@ class Application_Models_Customer extends Lib_DateBase
         return true;
     }
 
+    //Список контрагентов
     //--------------------------------------------------
     function getLeftList($uid)
     {
@@ -73,6 +74,8 @@ class Application_Models_Customer extends Lib_DateBase
 
         // $result = mysql_query($sql)  or die(mysql_error());
         $result = parent::query($sql) or die(mysql_error());
+
+        $LeftItems = null;
 
         while ($row = mysql_fetch_assoc($result))
         {
@@ -94,7 +97,9 @@ class Application_Models_Customer extends Lib_DateBase
 
         // $result = mysql_query($sql)  or die(mysql_error());
         $result = parent::query($sql);// or die(mysql_error());
-        if(!$result) return null;
+
+        $PriceItems = null;
+
         while ($row = mysql_fetch_assoc($result))
         {
             $PriceItems[]=array(
@@ -130,7 +135,10 @@ class Application_Models_Customer extends Lib_DateBase
             $sql = "SELECT orders.id, orders.cid, orders.sid, orders.number, orders.date, orders.summ, status.name as thestatus, users.name as thename FROM orders left join status on status.id=orders.status_id left join users on users.id=orders.sid WHERE cid=$a and sid=$b";
         }
 
-        $result = parent::query($sql) or die(mysql_error());
+//        $result = parent::query($sql) or die(mysql_error());
+        $result = parent::query($sql);
+
+        $OrdersItems = null;
 
         while ($row = mysql_fetch_assoc($result))
         {
