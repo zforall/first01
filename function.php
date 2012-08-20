@@ -1,7 +1,7 @@
 <?php
 $menu=getMenu();
 $usermenu=getUserMenu();
-$smal_cart=getSmalCart();
+//$smal_cart=getSmalCart();
 $category_list=Lib_Category::getInstance()->getCategoryList_UL(0);
 
 function getMenu(){

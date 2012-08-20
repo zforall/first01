@@ -6,11 +6,11 @@
 */
 
 require_once "./config.php"; //файл настроек
-define("protect", 10, true); //?
+// define("protect", 10, true); //?
 //-------------------------------------
 
-$router=new Lib_Application; //создаем объект, который будет искать нуджные контролеры
-$member=$router->Run();//Начинаем поиск нужного контролера
+$router = new Lib_Application; //создаем объект, который будет искать нуджные контролеры
+$member = $router->Run();//Начинаем поиск нужного контролера
 
 if(isset($member)) //если контролер вернул какието переменные, то делаеми их доступными для публичной части
 	foreach ($member as $key => $value)
@@ -30,4 +30,5 @@ if($_SESSION["Auth"] && $_SESSION["role"]=="1"){
 }	
 
 require_once "./function.php";//подключаем функционал сайта
-require_once "./template/index.php";//подключаем шаблон сайта 
+require_once "./template/index.php";//подключаем шаблон сайта
+

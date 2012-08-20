@@ -1,15 +1,18 @@
 <?php
  class Application_Models_Cart  extends Lib_DateBase
   {	  
+	//--------------------------------------------------
 	  function GetNumber(){// генерирует номер для нового заказа
 		return mt_rand(1,10000);
 		// return "123456";
 	  }
 
+	//--------------------------------------------------
 	  function GetSid(){// возвращает ид продавца
 		return mt_rand(3,4);
 	  }
 	  
+	//--------------------------------------------------
 	  function saveCartToBD(){// записывает корзину в базу
 		if (!isset($_SESSION['cart'])){exit();};
 		
@@ -57,12 +60,15 @@
 		return $id; // возвращаем номер заказа
 	  }	  
 
-	  function addToCart($id, $count=1)// доавляет в корзину товар
-	  {
+	//--------------------------------------------------
+	function addToCart($id, $count=1)// доавляет в корзину товар
+	{
+			var_dump($_SESSION['cart']);
 		$_SESSION['cart'][$id]=$_SESSION['cart'][$id]+$count;		
 		return true;
-	  }	  
+	}	  
 	  
+	//--------------------------------------------------
 	  function getListItemId() // возвращает список id продуктов из корзины
 	  {	  	  		 
 		if (!empty($_SESSION['cart'])){
@@ -72,6 +78,7 @@
 		return false;	
 	  }	  
 	  
+	//--------------------------------------------------
 	  function getTotalSumm() // возвращает иготовую сумму корзины
 	  {	  	  		 
 		$array_product_id=$this->getListItemId(); // получаем списо id 
@@ -80,6 +87,7 @@
 		foreach($array_product_id as $id){
 			$product_positions[]=$item_position->getProduct($id);// получаем информацию о каждом продукте
 		}
+        $total_summ = 0;
 		foreach($product_positions as $product)
 		{
 			$total_summ+=$_SESSION['cart'][$product['id']]*$product['price'];// расчитываем сумму
@@ -89,15 +97,19 @@
 	  }
 	  
 	// отчищает корзину
+	//--------------------------------------------------
 	function clearCart(){
+//		var_dump('gopa3');
 		unset($_SESSION['cart']);
 	}
 
 	  
 	  // обновляет содержимое корзины
+	//--------------------------------------------------
 	  function refreshCart($array_product_id){ // получает ассоциативный массив id=>count
 		foreach($array_product_id as $Item_Id => $new_count){
-			if($new_count<=0){ 
+				var_dump('gopa4');
+			if($new_count<=0){
 				unset($_SESSION['cart'][$Item_Id]); // если количесво меньше нуля, то удаляем запись
 			}
 			else
@@ -108,11 +120,13 @@
 	  }
 	  
 	  // проверка корзины на заполненность
+	//--------------------------------------------------
 	 function isEmptyCart(){ 
     if($_SESSION['cart']) return true; 
     else return false;
     }
 	
+	//--------------------------------------------------
 	function getOrderProdacts($oid)
 	{ 
 		 if (!isset($oid)) return NULL;
@@ -134,6 +148,7 @@
 	
 
 		// возвращает html код корзины
+	//--------------------------------------------------
 	  function printCart($order_id)
 	  {	  	  
 		$array_product_id=array();
@@ -163,6 +178,7 @@
 	  // формируем интерфейс для работы с корзиной
 			$table_cart="<table bgcolor='#E6DEEA' border='1' class='table_cart'><tr><th>№</th><th>Наименование</th><th>Стоимость</th><th>Количество</th><th>Сумма</th><th>Удалить</th></tr>";
 			$i=1;
+          $total_summ = 0;
 			foreach($product_positions as $product)
 			{
 				// var_dump($product);echo"<br>";

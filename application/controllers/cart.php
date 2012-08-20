@@ -1,6 +1,7 @@
 <?php
   class Application_Controllers_Cart extends Lib_BaseController
   {
+	//--------------------------------------------------
      function __construct()
 	 {
 			$model=new Application_Models_Cart;	
@@ -35,15 +36,17 @@
 	
 	
 			if($_REQUEST['clear']){ // если пользователь изменил данные в корзине
+//			var_dump('gopa');
 			
 				$model->clearCart(); // передаем в модель данные для обновления корзины
 				Lib_SmalCart::getInstance()->setCartData();// пересчитываем маленькую корзину
-				header('Location: /cart');
-				exit;		
+//				header('Location: /cart');
+//				exit;
 				
 			}
 			
 			if(isset($_REQUEST["to_order"])){  // если пришли данные с формы
+			var_dump('gopa1');
 				$model = new Application_Models_Cart;	//создаем модель заказа
 				$order_id=$model->saveCartToBD();
 				Lib_SmalCart::getInstance()->setCartData();// пересчитываем маленькую корзину
@@ -54,6 +57,7 @@
 	
 			if(isset($_REQUEST["oid"]))
 			{ 
+
 				$big_cart=$model->printCart($_REQUEST["oid"]);
 				$this->empty_cart=(!count($big_cart)==0);
 			}// если пришли данные с формы

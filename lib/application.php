@@ -84,11 +84,15 @@
 	{ 
 		session_start(); //открываем сессию
 		
+		
 		//если это авторизация - проверяем данные устанавливаем переменные сессии
 		if($_REQUEST['login']||$_REQUEST['pass']){		
 			$model=new Application_Models_Auth;
 			$resultValid=$model->ValidData($_REQUEST['login'],$_REQUEST['pass']);
+			
 		}
+
+		
 		
 		if($_REQUEST['out']=="1"){
 			$_SESSION["Auth"]=false;
@@ -104,10 +108,16 @@
 	   
 	   $cl=$cl[0]; //отбрасываем расширение, получаем только путь до контролера
     
-	   $name_contr=str_replace("/", "_", $cl);//заменяем в пути слеши на подчеркивания, таким образом получая название класса
-	   $contr=new $name_contr;//создаем экземпляр класса контролера
+	    $name_contr=str_replace("/", "_", $cl);//заменяем в пути слеши на подчеркивания, таким образом получая название класса
+//	    var_dump($name_contr);
+        $contr=new $name_contr;//создаем экземпляр класса контролера
+
+
+	   
        $member=$contr->member;//получаем переменные контролера
+	   
 	   return $member;
+	   
 	
 	}
 
