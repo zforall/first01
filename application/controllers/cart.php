@@ -46,11 +46,11 @@
 			}
 			
 			if(isset($_REQUEST["to_order"])){  // если пришли данные с формы
-				$model = new Application_Models_Cart;	//создаем модель заказа
+//				$model = new Application_Models_Cart;	//создаем модель заказа
 				$order_id=$model->saveCartToBD();
 				Lib_SmalCart::getInstance()->setCartData();// пересчитываем маленькую корзину
 				header('Location: /enter');
-				exit;
+//				exit;
 			}
 
 	
@@ -70,9 +70,4 @@
 		
 	 }
   }
-/*
-  Автор: Авдеев Марк.
-  e-mail: mark-avdeev@mail.ru
-  blog: lifeexample.ru
-*/
 ?>

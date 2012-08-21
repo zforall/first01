@@ -9,18 +9,19 @@
 
 	//--------------------------------------------------
 	  function GetSid(){// возвращает ид продавца
-		return mt_rand(3,4);
+//		return mt_rand(3,4);
+		return $_SESSION["filtr"];
 	  }
 	  
 	//--------------------------------------------------
 	  function saveCartToBD(){// записывает корзину в базу
-		if (!isset($_SESSION['cart'])){exit();};
+		if (!isset($_SESSION['cart'])){return false;};
 		
 		$summ = $this->getTotalSumm();
 		$date = mktime(); //текущая дата в UNIX формате
 		$number = $this->GetNumber();
-		// $cid = $_SESSION["uid"];
-		$cid = 6;
+		 $cid = $_SESSION["uid"];
+//		$cid = 6;
 		$sid = $this->GetSid();
 		//формируем массив параметров SQL запроса
 		$array=array(

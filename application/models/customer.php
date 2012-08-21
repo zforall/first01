@@ -135,7 +135,6 @@ class Application_Models_Customer extends Lib_DateBase
             $sql = "SELECT orders.id, orders.cid, orders.sid, orders.number, orders.date, orders.summ, status.name as thestatus, users.name as thename FROM orders left join status on status.id=orders.status_id left join users on users.id=orders.sid WHERE cid=$a and sid=$b";
         }
 
-//        $result = parent::query($sql) or die(mysql_error());
         $result = parent::query($sql);
 
         $OrdersItems = null;
