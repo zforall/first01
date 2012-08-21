@@ -92,7 +92,7 @@ class Application_Models_Customer extends Lib_DateBase
     {
         if (!isset($uid)) return NULL;
 
-        $sql = "SELECT id, art, name, price, count FROM products WHERE sid=$uid";
+        $sql = "SELECT id, art, name, price, count, ed FROM products WHERE sid=$uid";
         // $sql = "SELECT id, art, name, price, count FROM products WHERE sid=0";
 
         // $result = mysql_query($sql)  or die(mysql_error());
@@ -108,6 +108,7 @@ class Application_Models_Customer extends Lib_DateBase
                 "name"=>$row['name'],
                 "price"=>$row['price'],
                 "count"=>$row['count'],
+                "ed"=>$row['ed'],
             );
         }
         return $PriceItems;

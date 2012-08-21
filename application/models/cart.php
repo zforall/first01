@@ -1,6 +1,7 @@
 <?php
- class Application_Models_Cart  extends Lib_DateBase
-  {	  
+
+class Application_Models_Cart  extends Lib_DateBase
+{
 	//--------------------------------------------------
 	  function GetNumber(){// генерирует номер для нового заказа
 		return mt_rand(1,10000);
@@ -198,7 +199,7 @@
 		
 		return $table_cart;
 	  }	  
-  } 
+}
   
   
   /* 
