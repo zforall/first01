@@ -67,6 +67,7 @@ margin-right:15px;
 		<div class="logo"></div>		
 		<div class="menu">
 			<ul>
+                <br>
 				<li ><a href="/admin" id="look">Панель управления</a></li>
 			</ul>
 		</div>

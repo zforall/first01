@@ -49,18 +49,20 @@
 		<div id="ManagerContent">
 			<strong>Содержание</strong><br>
 			<?
-			// var_dump($ContentItems);
+            $table_orders = "<form method=POST><table id='myTable' class='tablesorter'>
+						<thead>
+						<tr>
+							<th>№_</th>
+							<th>Контрагент</th>
+							<th>Выбрать</th>
+						</tr>
+						</thead>
+						<tbody>";
+                        $i=1;
 
-			// if (count($ContentItems)>0) {
-				// foreach($ContentItems as $item){
-					// $tmp = $item['name'];
-					// $tmp1 = $item['id'];
-					// echo "<a href=?u=$tmp1>$tmp</a><br>";
-				// }
-			// }
-						echo "<form method=POST>";
-						$table_orders="<table bgcolor='#E6DEEA' border='1' class='table_orders'><tr><th>№</th><th>Контрагент</th><th>Выбрать</th></tr>";
-						$i=1;
+
+//						$table_orders="<table bgcolor='#E6DEEA' border='1' class='table_orders'><tr><th>№</th><th>Контрагент</th><th>Выбрать</th></tr>";
+//						$i=1;
 						foreach($ContentItems as $item) {
 							if ($i%2==0) $bgcolor="#F2F2F2"; else $bgcolor="lightgray";
 							$table_orders.="<tr bgcolor=$bgcolor>";
@@ -74,13 +76,10 @@
 							// else $table_orders.="<td>"."<INPUT TYPE='checkbox' name='del_".$item['id']."'>"."</td>";
 							$table_orders.="</tr>";	
 						}
-						$table_orders.="</table>";
+						$table_orders.="</tbody></table>";
+						$table_orders.="<input type='submit' value='Обновить'></form>";
 						echo $table_orders;
-						echo "<input type='submit' value='Обновить'>";
-						
-						echo "</form>";
-			
-			
+
 			?>
 		</div><!-- ManagerContent -->
 

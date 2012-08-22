@@ -59,7 +59,8 @@
     }
 
     private function getController()//получить контролер
-	{       
+	{
+        $controller = null;
        $route=$this->route;
 	   if($route!="admin"){
 	   $path_contr = 'application/controllers/';

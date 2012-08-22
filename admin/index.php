@@ -23,6 +23,7 @@ session_start(); //открываем сессию
 				<li class="page"><a href="#" id="page">Страницы</a></li>
 				<!--<li class="menu"><a href="#" id="menu">Меню</a></li>-->				
 				<li class="settings"><a href="#" id="settings">Настройки</a></li>
+				<li class="settings"><a href="#" id="gopa">Gopa</a></li>
 
 			</ul>
 		</div>

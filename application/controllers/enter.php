@@ -39,6 +39,7 @@ class Application_Controllers_Enter extends Lib_BaseController
 
          switch ($_SESSION["role"])
 		{
+			 case (1) : { header('Location: /admin'); break;}
 			 case (2) : { header('Location: /manager'); break;}
 			 case (3) : { header('Location: /seller'); break;}
 			 case (4) : { header('Location: /customer'); break;}

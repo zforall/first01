@@ -1,7 +1,7 @@
-		
+п»ї		
 	$(document).ready(function(){
  	
-	//обработчики нажатий на ссылки в панеле
+	//РѕР±СЂР°Р±РѕС‚С‡РёРєРё РЅР°Р¶Р°С‚РёР№ РЅР° СЃСЃС‹Р»РєРё РІ РїР°РЅРµР»Рµ
 			$('a[id=product]').click(function(){show("catalog.php");});
 			$('a[id=category]').click(function(){show("category.php");});
 			$('a[id=page]').click(function(){show("page.php");});
@@ -10,7 +10,7 @@
 	});  	
 
 	
-	//запрашивает страницу для вывода 
+	//Р·Р°РїСЂР°С€РёРІР°РµС‚ СЃС‚СЂР°РЅРёС†Сѓ РґР»СЏ РІС‹РІРѕРґР° 
 		function show(url)  
         {  
             $.ajax({                
@@ -42,7 +42,7 @@
 				
 		}
 		
-		//позиционирование элемента по центру окна
+		//РїРѕР·РёС†РёРѕРЅРёСЂРѕРІР°РЅРёРµ СЌР»РµРјРµРЅС‚Р° РїРѕ С†РµРЅС‚СЂСѓ РѕРєРЅР°
 		function centerPosition(object)  
         {
 			object.css('position', 'absolute');

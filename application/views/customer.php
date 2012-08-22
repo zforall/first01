@@ -42,7 +42,7 @@
                 $i=1;
                 foreach($OrdersItems as $item) {
                     if ($i%2==0) $bgcolor="#F2F2F2"; else $bgcolor="lightgray";
-                    $table_orders.="<tr bgcolor=$bgcolor>";
+//                    $table_orders.="<tr bgcolor=$bgcolor>";
                     $table_orders.="<td>".$i++."</td>";
                     $table_orders.="<td><a href='/cart?oid=".$item['id']."'>".$item['number']."</a></td>";
 

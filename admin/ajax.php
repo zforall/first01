@@ -1,7 +1,7 @@
 <?
 require_once "./config.php";
 
-//подключаем страницу каталога
+//РїРѕРґРєР»СЋР°РµРј РєР°С‚Р°Р»РѕРі
 if($_REQUEST['url']=="catalog.php"){
 
 	if(isset($_REQUEST['page'])){
