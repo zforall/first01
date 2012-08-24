@@ -221,8 +221,8 @@ class Application_Models_Seller  extends Lib_DateBase
 				"id"=>$row['id'],
 				"name"=>$row1['name'],
 				"number"=>$row['number'],
-				"date"=>$row['date'],
-				"summ"=>$row['summ'],
+                "date"=> strftime('%d %b %Y', $row['date']),
+                "summ"=>$row['summ'],
 				"status"=>$row2['name'],
 			);
 		}

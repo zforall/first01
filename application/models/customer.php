@@ -146,7 +146,7 @@ class Application_Models_Customer extends Lib_DateBase
                 "id"=>$row['id'],
                 "name"=>$row['thename'],
                 "number"=>$row['number'],
-                "date"=>$row['date'],
+                "date"=> strftime('%d %b %Y', $row['date']),
                 "summ"=>$row['summ'],
                 "status"=>$row['thestatus'],
             );
