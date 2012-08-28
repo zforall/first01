@@ -12,9 +12,31 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("#myTable").tablesorter( {sortList: [[0,0]]} );
-		}
+
+            $("#sideLeft li").click(function(){
+                window.location=$(this).find("a").attr("href");return false;
+            });
+
+/*
+            $("#sideLeft h1").click(function(){
+                $(".logo").animate({height: "hide"}, 1000);
+                $(".logo").animate({height: "show"}, 1000);
+            });
+*/
+
+            }
 		);
-	</script>
+
+/*
+        $(document).ready(function(){
+
+            $("#sideLeft li").click(function(){
+                window.location=$(this).find("a").attr("href");return false;
+            });
+
+        }); //close doc ready
+*/
+    </script>
 	
 </head>
 

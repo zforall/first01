@@ -1,4 +1,4 @@
-/*
+п»ї/*
  
 */
 body {
@@ -26,6 +26,10 @@ table, table td {
 }
 
 #header {
+/*
+    border: 1px solid gray;
+    border-radius: 10px;
+*/
 
 }
 
@@ -109,12 +113,41 @@ border-bottom: dashed 1px #551A8B;
 /* Sidebar Left
 -----------------------------------------------------------------------------*/
 #sideLeft {
-	float: left;
+    font-family:arial;
+    float: left;
 	width: 200px;
 	height: 500px;
 	overflow: auto;
 	background: #B5E3FF;
 }
+#sideLeft a {
+    color: #333300;
+    text-decoration: none;
+}
+#sideLeft a:visited {
+    color: #333300;
+}
+#sideLeft a:hover {
+    color: #333300;
+    text-decoration: underline;
+}
+
+#sideLeft ul {
+    padding: 0; /* РЈР±РёСЂР°РµРј РїРѕР»СЏ */
+    margin-left: 0px; /* РћС‚СЃС‚СѓРї СЃР»РµРІР° */}
+
+#sideLeft li {
+    /*background: #ecfad7;*/
+    background: #ecfad7;
+    padding: 10px 20px 10px;
+    border-top: solid 1px #c4df9b;
+    cursor: pointer;
+}
+#sideLeft li:hover {
+    /*background: #f6ffe9;*/
+    background: #E6DEEA;
+}
+
 
 #ManagerContent {
 	float: right;
@@ -161,7 +194,7 @@ table.tablesorter {
 	font-family:arial;
 	background-color: #CDCDCD;
 	margin:10px 0pt 15px;
-	font-size: 8pt;
+	/*font-size: 8pt;*/
 	width: 100%;
 	text-align: left;
 }
@@ -224,7 +257,7 @@ border-bottom: dashed 1px #551A8B;
 
 }
 
-price_table {
+#price_table {
 	background-color: white;
 	width: 100%;
 }
@@ -397,7 +430,7 @@ margin: 0;
 padding: 0;
 list-style-type: none;
 font: bold 13px Verdana;
-width: 150px; /*Ширина меню */
+width: 150px; /*РЁРёСЂРёРЅР° РјРµРЅСЋ */
 
 }
   
@@ -405,36 +438,36 @@ width: 150px; /*Ширина меню */
 position: relative;
 
 }
-/* Стили ссылок для основного списка меню */
+/* РЎС‚РёР»Рё СЃСЃС‹Р»РѕРє РґР»СЏ РѕСЃРЅРѕРІРЅРѕРіРѕ СЃРїРёСЃРєР° РјРµРЅСЋ */
 .sidebarmenu ul li a{
 display: block;
 overflow: auto; /*force hasLayout in IE7 */
 color: #38385E; 
-text-decoration: none;  /*убрали подчеркивание*/
-padding: 5px; /*отступы*/
+text-decoration: none;  /*СѓР±СЂР°Р»Рё РїРѕРґС‡РµСЂРєРёРІР°РЅРёРµ*/
+padding: 5px; /*РѕС‚СЃС‚СѓРїС‹*/
 border-bottom: 1px solid #778;
 border-right: 1px solid #778;
 }
 .sidebarmenu ul li a:link, .sidebarmenu ul li a:visited,
 .sidebarmenu ul li a:active{
-background-color: #E6DEEA; /*фоновый цвет основного списка*/
+background-color: #E6DEEA; /*С„РѕРЅРѕРІС‹Р№ С†РІРµС‚ РѕСЃРЅРѕРІРЅРѕРіРѕ СЃРїРёСЃРєР°*/
 }
 .sidebarmenu ul li a:visited{
-color: #38385E;  /*цвет шрифта после наведения курсора*/
+color: #38385E;  /*С†РІРµС‚ С€СЂРёС„С‚Р° РїРѕСЃР»Рµ РЅР°РІРµРґРµРЅРёСЏ РєСѓСЂСЃРѕСЂР°*/
 }
 .sidebarmenu ul li a:hover{
 color: white; 
-background-color: #551A8B; /*цвет фона после наведения курсора*/
+background-color: #551A8B; /*С†РІРµС‚ С„РѕРЅР° РїРѕСЃР»Рµ РЅР°РІРµРґРµРЅРёСЏ РєСѓСЂСЃРѕСЂР°*/
 }
-/*Стили для подменю */
+/*РЎС‚РёР»Рё РґР»СЏ РїРѕРґРјРµРЅСЋ */
 .sidebarmenu ul li ul{
 position: absolute;
-width: 170px; /*ширина подменю */
+width: 170px; /*С€РёСЂРёРЅР° РїРѕРґРјРµРЅСЋ */
 top: 0;
 visibility: hidden;
 }
 .sidebarmenu a.subfolderstyle{
-background:url('/images/right_vertic.gif') no-repeat 97% 50%;/*изображение(стрелочка вправо)*/
+background:url('/images/right_vertic.gif') no-repeat 97% 50%;/*РёР·РѕР±СЂР°Р¶РµРЅРёРµ(СЃС‚СЂРµР»РѕС‡РєР° РІРїСЂР°РІРѕ)*/
 }
 /* Holly Hack for IE \\*/
 * html .sidebarmenu ul li { float: left; height: 1%; }

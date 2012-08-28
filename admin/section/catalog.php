@@ -55,7 +55,7 @@
 		<td class="id"><?=$data['id']?></td>
 		<td id="<?=$data['cat_id']?>" class="cat_id"><?=$list_categories[$data['cat_id']]?></td>
 		<td class="image_url"><?if(!$data['image_url']){$data['image_url']="none.png";}?><img class="uploads" src="../uploads/<?=$data['image_url']?>"/></td>
-		<td class="code"><?=$data['code']?></td>
+		<td class="code"><?=$data['art']?></td>
 		<td class="name"><?=$data['name']?></td>
 		<td class="desc" id="<?=$data['id']?>"><?=$data['desc']?></td>
 		
